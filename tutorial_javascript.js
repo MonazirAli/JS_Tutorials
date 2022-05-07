@@ -255,3 +255,5 @@ let obj = {
 };
 
 console.log(obj.cat.legs);
+
+console.log(obj)
