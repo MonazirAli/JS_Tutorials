@@ -240,22 +240,47 @@ function checkObj(checkProp) {
 
 
 /// record collection start  o2:01:00
+var collection={
+"2548":{
+  "album": "Coke Studio",
+  "artist": "Atif Aslam",
+  "tracks": [
+    "Aadat",
+    "Mujh ko bata mera dar hai kaha Maula"
+  ]
+},
+  "2468": {
+    "album": "Nasheed",
+    "artist": "Nasheed",
+    "tracks": [
+      "maula ya salli wasalam",
+      "Na koi aap jaisa hoga"
+    ]
+  },
+  "1245": {
+    "artist": "Everyone",
+    "tracks": [    ]
+  },
+  "5439": {
+    "artist": "Mera dil kahi dur paharo me kho gya",
+  }
 
-
-
+};
+//keep a copy of collection for tests start here
+var collectioncopy=JSON.parse(JSON.stringify(collection));
+//keep a copy of collection for tests ends
+function updateRecords(id,prop,value){
+    if(value===""){
+      delete collection[id][prop];
+    } else if(prop==="tracks"){
+      collection[id][prop] = collection[id][prop] || [];
+      collection[id][prop].push(value);
+    }else{
+      collection[id][prop]=value;
+    }
+  return collection;
+}
+updateRecords(2548,"tracks","asmaul husna")
+console.log(updateRecords(5439,"album","Mer nabi pyare nabi"));
 
 ////record collection ends 
-
-let obj = {
-  cat: {
-    has_tail: "1",
-    legs: "4"
-  },
-  dog: "woof"
-};
-
-console.log(obj.cat.legs);
-
-console.log(obj)
-
-console.log(obj.cat)
