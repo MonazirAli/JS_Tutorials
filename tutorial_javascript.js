@@ -523,5 +523,142 @@ function getMaxOfTmrwForecat(forecast){
 const{tomorrow:{max: maxOfTmrwForecat}} = forecast;
 return maxOfTmrwForecat;
 }
-console.log(getMaxOfTmrwForecat(LOCAL_FORECAST));
+//console.log(getMaxOfTmrwForecat(LOCAL_FORECAST));
 //use destructing assignment with nested objects ends here
+
+//use destructing assignment to assign variable from array start here
+const[z3,x, ,y]=[1, 2, 3, 4,5,6];
+//console.log(z3,x,y);
+
+let a4=8,b4=6;
+(()=>{
+  "use strict";
+  [a4,b4]=[b4,a4]
+})();
+//console.log("a is :"+a4+" and b is :"+b4);
+//use destructing assignment to assign variable from array  ends here
+
+//use destructing assignment with the rest operator start here
+const source =[1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list){
+const [ , ,...arr]=list;
+
+return arr;
+}
+const arr5=removeFirstTwo(source);
+//console.log(arr5);console.log(source);
+//use destructing assignment with the rest operator ends here
+
+//use destructing assignment to pass an object as a function parameter start here
+
+const stats={
+  max: 56.78,
+  standard_deviation: 4.38,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+const half=(function(){
+return function half({max,min}){//(stats){//only passing the required property of an object
+return (max+min)/2.0;//(stats.max + stats.min) / 2.0;
+};
+})();
+
+//console.log(stats);console.log(half(stats));
+//use destructing assignment to pass an object as a function parameter ends here
+
+//create string using template literals start here
+const person={
+  name :"H.A Helwa",
+  age :37
+};
+const greting=`Hello, My name is ${person.name} and I am ${person.age} years old.`;
+//console.log(greting);
+
+//example 2
+const result={
+success:["max-length","no-amd","prefer-arrow-function"],
+failure:["no-var","var-on-top","linebreak"],
+skipped:["id-blacklist","no-dup-keys"]
+};
+function makeList(arr){
+  const resultDisplayArray=[];
+  for(let i=0;i<arr.length;i++){
+    resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`);
+  }
+  return resultDisplayArray;
+}
+const resultDisplayArray=makeList(result.failure);
+//console.log(resultDisplayArray);
+//create string using template literals ends here
+
+//writing concise object literal declaration using simple field starts here
+const createPerson=(name,age,gender)=>({name,age,gender});/*{
+return {
+  name: name,
+  age: age,
+  gender: gender
+};
+};*/
+//console.log(createPerson("Tony",57,"Male"));
+//writing concise object literal declaration using simple field ends here
+
+//write concise declarative function begins  here
+const bicycle={
+  gear:2,
+  setGear (newGear) {//setGear:function(newGear){  // both are same in line 610
+    "use strict";
+    this.gear = newGear;
+  }
+};
+bicycle.setGear(3);
+//console.log(bicycle.gear);
+
+//write concise declarative function ends  here
+class SpaceShuttle{
+  constructor(targetPlanet){
+    this.targetPlanet = targetPlanet;
+  }
+}
+var zeus= new SpaceShuttle('Jupiter');
+//console.log(zeus.targetPlanet);
+//use class syntax to define  a constructor function
+
+//use getter and setter to control access to an object starts here
+class Book  {
+  constructor(author){
+    this._author = author;
+  }
+  //getter 
+  get writer(){
+    return this._author;
+  }
+  // setter
+  set writer(updatedWriter){
+this._author = updatedWriter;
+  }
+}
+
+function makeClass(){
+class Thermostat{
+  constructor(farenhiteTemp){
+    this._temp=5/9*(farenhiteTemp-32);
+  }
+  get temperature(){return this._temp;}
+  set temperature(updatedTemperature){this._temp=updatedTemperature;}
+}
+  return Thermostat;
+}
+const Thermostat =makeClass();
+const thermos = new Thermostat(100);
+let temp=thermos.temperature;
+//console.log(temp);
+thermos.temperature=25;
+temp=thermos.temperature;
+//console.log(temp);
+//use getter and setter to control access to an object ends here
+
+//understand the difference between import and require start here
+
+//understand the difference between import and require ends here
