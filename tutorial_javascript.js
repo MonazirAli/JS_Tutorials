@@ -239,7 +239,7 @@ function checkObj(checkProp) {
 //console.log(checkObj("tails"));
 
 
-/// record collection start  o2:01:00
+/// record collection start  
 var collection={
 "2548":{
   "album": "Coke Studio",
@@ -281,6 +281,69 @@ function updateRecords(id,prop,value){
   return collection;
 }
 updateRecords(2548,"tracks","asmaul husna")
-console.log(updateRecords(5439,"album","Mer nabi pyare nabi"));
+//console.log(updateRecords(5439,"album","Mer nabi pyare nabi"));
 
-////record collection ends 
+////record collection ends
+
+//profile lookup start here
+var contacts=[
+{
+  "firstName": "Soheb",
+  "lastName": "Hussain",
+  "number": "9876543210",
+  "likes": ["Bike riding","food","travelling"]
+},
+  {
+    "firstName": "Faizan",
+    "lastName": "Hassan",
+    "number": "1234567890",
+    "likes": ["Story", "Home",]
+  },
+  {
+    "firstName": "Ekhlaque",
+    "lastName": "Hussain",
+    "number": "98976123450",
+    "likes": ["People", "Mobile"]
+  },
+  {
+    "firstName": "Shahrukh",
+    "lastName": "Khan",
+    "number": "1234598760",
+    "likes": ["People", "Bullet"]
+  }
+];
+
+function lookUpProfile(name,prop) {
+    for(var i=0;i< contacts.length;i++) {
+      if(contacts[i].firstName===name){
+          return contacts[i][prop] ||"No such poperty exists"
+      }
+    } 
+    return "No such contact found on contacts";
+}
+var data = lookUpProfile("Shahrukh","likes")
+//console.log(data);
+//profile lookup end  here
+
+//Generate random fraction start here 
+function randomfraction(){
+  return Math.random();//number is from 0 to <1
+}
+//console.log(randomfraction());
+//Generate random fraction ends here
+
+//Generate random whole number start here
+function randomWholeNum() {
+  return Math.floor( Math.random() *100);//generate no b\n 0 to 99
+}
+//console.log(randomWholeNum());//
+
+//Generate random whole number ends  here
+
+//Generate random whole number  within range start  here
+function ourRandomRanges(start, end){
+  return Math.floor(Math.random() * (end-start+1))+start;//generate no b\n  start to end
+}
+var myRandom=ourRandomRanges(5,50);
+console.log(myRandom);
+//Generate random whole number  within range ends  here 
