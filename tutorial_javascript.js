@@ -240,15 +240,15 @@ function checkObj(checkProp) {
 
 
 /// record collection start  
-var collection={
-"2548":{
-  "album": "Coke Studio",
-  "artist": "Atif Aslam",
-  "tracks": [
-    "Aadat",
-    "Mujh ko bata mera dar hai kaha Maula"
-  ]
-},
+var collection = {
+  "2548": {
+    "album": "Coke Studio",
+    "artist": "Atif Aslam",
+    "tracks": [
+      "Aadat",
+      "Mujh ko bata mera dar hai kaha Maula"
+    ]
+  },
   "2468": {
     "album": "Nasheed",
     "artist": "Nasheed",
@@ -259,7 +259,7 @@ var collection={
   },
   "1245": {
     "artist": "Everyone",
-    "tracks": [    ]
+    "tracks": []
   },
   "5439": {
     "artist": "Mera dil kahi dur paharo me kho gya",
@@ -267,32 +267,32 @@ var collection={
 
 };
 //keep a copy of collection for tests start here
-var collectioncopy=JSON.parse(JSON.stringify(collection));
+var collectioncopy = JSON.parse(JSON.stringify(collection));
 //keep a copy of collection for tests ends
-function updateRecords(id,prop,value){
-    if(value===""){
-      delete collection[id][prop];
-    } else if(prop==="tracks"){
-      collection[id][prop] = collection[id][prop] || [];
-      collection[id][prop].push(value);
-    }else{
-      collection[id][prop]=value;
-    }
+function updateRecords(id, prop, value) {
+  if (value === "") {
+    delete collection[id][prop];
+  } else if (prop === "tracks") {
+    collection[id][prop] = collection[id][prop] || [];
+    collection[id][prop].push(value);
+  } else {
+    collection[id][prop] = value;
+  }
   return collection;
 }
-updateRecords(2548,"tracks","asmaul husna")
+updateRecords(2548, "tracks", "asmaul husna")
 //console.log(updateRecords(5439,"album","Mer nabi pyare nabi"));
 
 ////record collection ends
 
 //profile lookup start here
-var contacts=[
-{
-  "firstName": "Soheb",
-  "lastName": "Hussain",
-  "number": "9876543210",
-  "likes": ["Bike riding","food","travelling"]
-},
+var contacts = [
+  {
+    "firstName": "Soheb",
+    "lastName": "Hussain",
+    "number": "9876543210",
+    "likes": ["Bike riding", "food", "travelling"]
+  },
   {
     "firstName": "Faizan",
     "lastName": "Hassan",
@@ -313,20 +313,20 @@ var contacts=[
   }
 ];
 
-function lookUpProfile(name,prop) {
-    for(var i=0;i< contacts.length;i++) {
-      if(contacts[i].firstName===name){
-          return contacts[i][prop] ||"No such poperty exists"
-      }
-    } 
-    return "No such contact found on contacts";
+function lookUpProfile(name, prop) {
+  for (var i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName === name) {
+      return contacts[i][prop] || "No such poperty exists"
+    }
+  }
+  return "No such contact found on contacts";
 }
-var data = lookUpProfile("Shahrukh","likes")
+var data = lookUpProfile("Shahrukh", "likes")
 //console.log(data);
 //profile lookup end  here
 
 //Generate random fraction start here 
-function randomfraction(){
+function randomfraction() {
   return Math.random();//number is from 0 to <1
 }
 //console.log(randomfraction());
@@ -334,16 +334,194 @@ function randomfraction(){
 
 //Generate random whole number start here
 function randomWholeNum() {
-  return Math.floor( Math.random() *100);//generate no b\n 0 to 99
+  return Math.floor(Math.random() * 100);//generate no b\n 0 to 99
 }
 //console.log(randomWholeNum());//
 
 //Generate random whole number ends  here
 
 //Generate random whole number  within range start  here
-function ourRandomRanges(start, end){
-  return Math.floor(Math.random() * (end-start+1))+start;//generate no b\n  start to end
+function ourRandomRanges(start, end) {
+  return Math.floor(Math.random() * (end - start + 1)) + start;//generate no b\n  start to end
 }
-var myRandom=ourRandomRanges(5,50);
-console.log(myRandom);
-//Generate random whole number  within range ends  here 
+var myRandom = ourRandomRanges(5, 50);
+//console.log(myRandom);
+//Generate random whole number  within range ends  here
+
+//convert string to integer begins  here
+function convertToInteger(str) {
+  return parseInt(str);
+}
+//console.log(convertToInteger("56"));
+//convert string to integer ends  here
+
+//convert binary string to integer begins  here
+function convertBinaryToInteger(str) {
+  return parseInt(str, 2);// here 2 is passed to tell it is of base 2 i.e  binary
+}
+//console.log(convertBinaryToInteger("10110"));
+//convert binary string to integer ends  here
+
+//conditonal ternary operator begins here
+// condition? statement if true: statement if false;
+function checkEqual(a, b) {
+  //if(a===b){return true;} else {return false};
+  return a == b ? true : false;//return a===b;
+}
+//console.log(checkEqual(5,5));
+//conditonal ternary operator ends here
+
+//Multiple conditonal ternary operator starts here
+function checkSign(num) {
+  return num > 0 ? "positive" : num < 0 ? "negative" : "Zero";
+}
+//console.log(checkSign(-1));
+//Multiple conditonal ternary operator ends here
+
+//Difference between var and let keyword begins here
+// let wont let you declare a variable twice
+let cat="Meow";  cat="abc";//here cat cannot be declare twice using let
+var cts="abc";var cts="xyz";//here cts is declared twice using var
+//"use strict"; //enable strict mode which catches coding mistake and unsafe action.use it in start of your js file
+//let is only defined in block scope while var is defined in function scope  . 
+function checkScope(){
+"use strict"; 
+  let i = "function scope";//We can access var outside the scope . To check comment this line and change line number 391 variable 'i' to type var.
+      if(true){
+         let i="Block scope";
+          console.log("Block scope of i is : ",i);
+      }
+  console.log("Functional scope of i is : ", i);
+
+}
+//checkScope();
+//Difference between var and let keyword ends here
+
+//Read only variable i.e const keyword starts here
+//it has all feature of let , you cannot reassign a const
+function printManyTimes(str){
+  "use strict";
+  const SENTENCE = str + " is cool!";
+  //SENTENCE= str+" is awesome"; it cannot be changed
+   for (let i=0; i<str.length; i+=2){
+     console.log(SENTENCE);
+   }
+}
+//printManyTimes("GitHub");
+//you should use let and const
+//Read only variable i.e const keyword ends here
+
+//Mutate an array declared with const begins  here
+const a1=[1,2,3,4];
+function mutateArray(){/*(array){
+array[0] = 9; array[1] = 8; array[2] = 7;array[3]=6;
+return array;*/
+
+  "use strict"
+  a1[0] = 9; a1[1] = 8; a1[2] = 7; a1[3] = 6;
+} mutateArray();
+//console.log(a1);
+
+//Mutate an array declared with const ends here
+
+//Prevent object mutation start here
+function freezeObj(){
+  "use strict"
+  const MATH_CONSTANT={ PI:3.14 };
+Object.freeze(MATH_CONSTANT);
+  try{
+    MATH_CONSTANT.PI=37;
+  }catch(ex){
+    console.log(ex);
+  }
+  return MATH_CONSTANT.PI;
+}
+//const PI= freezeObj();
+//console.log(PI);
+//Prevent object mutation end here
+
+// use arrow function to write concise anonymous functions starts here
+/*var magic= function(){
+  return new Date();
+};*/
+const magic=()=>new Date();//same as above
+// use arrow function to write concise anonymous functions ends here
+
+//write arrow function with parameter starts here
+
+const myConcat=(ar1,ar2)=> ar1.concat(ar2);
+//console.log(myConcat([1,2,3],[4,5]));
+//write arrow function with parameter ends here
+
+// write higher order arrow function starts here
+//example 1 is
+ const realNumberArray =[4,5.6,-9.8,3.14,42,6,8.34,-2];
+ const squareList=(arr)=>  {
+   const squaredInteger= arr.filter(num=>Number.isInteger(num) && num>0).map(x=>x*x);
+  return squaredInteger;
+ };
+ const squaredInteger=squareList(realNumberArray);
+ //console.log(squaredInteger);//print square of integer number which is >0
+
+//example 2 is 
+
+const increment =(function(){
+  return function increment(number, value=1){
+    return number + value;
+  
+};
+})  ();
+//console.log(increment(5,2));// value is passed  as 2 so incremented by 2
+//console.log(increment(5));//as value is set to 1 so incremented by 1
+
+
+// write higher order arrow function ends here
+
+//use rest operator with function parameter begins here
+const sumArray=(function() {
+  return function sum(...args) {//(x,y,z){
+    //const args=[x,y,z];
+    return args.reduce((a,b)=>a+b,0);
+  };
+})();
+//console.log(sumArray(1,2,3,4,5,6,7,8,9,10));
+//use rest operator with function parameter ends here
+
+//use spread operator to evaluate array in-place starts here
+const arr12=["JAN","FEB","MAR","APR","MAY"];
+let arr21;
+(function(){
+ arr21=[...arr12];//it is not making arr12 == arr21 and we are making content of arr12 eqals arr21  i.e spread out content of arr12 into arr21
+arr12[0]="Sunday";
+})();
+//console.log(arr21);
+//use spread operator to evaluate array in-place ends here
+
+//use destructing assignment to assign variables from objects starts here
+var voxel={ x:3.6, y :7.4 ,z:6.54};
+const{x:a2,y:b2,z:c2}=voxel;//a=3.6,b=7.4,c=6.54
+
+const AVERAGE_TEMPERATURE={
+  today :77.5,tomorrow:79
+};
+function getTempOfTmrw(avgTemparature){
+  "use strict";
+  const {tomorrow: tempOfTomorrow }= avgTemparature;//get tommorow feild from avgTemperature object and assignit to the tempOfTomorrow variable
+  return tempOfTomorrow;
+}
+//console.log(getTempOfTmrw(AVERAGE_TEMPERATURE));
+//use destructing assignment to assign variables from objects ends here
+
+
+//use destructing assignment with nested objects start here
+const LOCAL_FORECAST={
+  today:{min:72,max:83},
+  tomorrow:{min :73.6,max:84.3}
+};
+function getMaxOfTmrwForecat(forecast){
+"use strict";
+const{tomorrow:{max: maxOfTmrwForecat}} = forecast;
+return maxOfTmrwForecat;
+}
+console.log(getMaxOfTmrwForecat(LOCAL_FORECAST));
+//use destructing assignment with nested objects ends here
