@@ -1,4 +1,4 @@
-const { capitaliseString,a } = require("./test_i_e1");
+const { capitaliseString,a } = require("./exportImport_1");
 
 const cap = capitaliseString("Hello!");
 

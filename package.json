@@ -1,0 +1,19 @@
+{
+  "name": "javascript-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exportImport_1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonazirAli/JS_Tutorials.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MonazirAli/JS_Tutorials/issues"
+  },
+  "homepage": "https://github.com/MonazirAli/JS_Tutorials#readme"
+}
