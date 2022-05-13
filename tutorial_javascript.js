@@ -660,5 +660,6 @@ temp=thermos.temperature;
 //use getter and setter to control access to an object ends here
 
 //understand the difference between import and require start here
-
+ //see other file named as test_i_e1 and test_i_e2 for details
+ // functions declare in test_i_e1 is used in test_i_e2
 //understand the difference between import and require ends here
